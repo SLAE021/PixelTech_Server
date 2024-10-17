@@ -12,12 +12,9 @@ router.get("/", (req, res, next) => {
 const productsRouter = require("./products.routes.js")
 router.use("/products", productsRouter)
 
-//auth reta
+//auth ruta
 const authRouter = require("./auth.routes.js")
 router.use("/auth", authRouter)
-
-
-
 
 
 module.exports = router;
