@@ -45,22 +45,33 @@ router.post("/", async (req, res, next) => {
     next(error);
   }
 });
-//router.patch("update/:id", asunc (req, res, next)=>{})
 
+///api/products/update/id-- actualizar un producto 
 
-    
+router.patch("/update/:id", async (req, res, next) => {
+  try {
+    await Products.findByIdAndUpdate(req.params.id, {
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      category: req.body.category,
+      image: req.body.image,
+    });
+    res.sendStatus(202);
+  } catch (error) {
+    res.status(400).json({ message: "no actualizado" });
+    next(error);
+  }
+});
 
-    router.delete("/:id", async (req, res,next) => {
-        try {
-          await Products.findByIdAndDelete(req.params.id);
-          res.sendStatus(202);
-        } catch (error) {
-            res.status(400).json({ message: "no se borro" });
-            next(error);
-        }
-      });
-      
-
-
+router.delete("/:id", async (req, res, next) => {
+  try {
+    await Products.findByIdAndDelete(req.params.id);
+    res.sendStatus(202);
+  } catch (error) {
+    res.status(400).json({ message: "no se borro" });
+    next(error);
+  }
+});
 
 module.exports = router;
