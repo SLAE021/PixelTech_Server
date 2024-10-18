@@ -16,5 +16,8 @@ router.use("/products", productsRouter)
 const authRouter = require("./auth.routes.js")
 router.use("/auth", authRouter)
 
+//ruta a Reviews
+const reviewsRouter = require("./reviews.routes.js")
+router.use("/reviews", reviewsRouter)
 
 module.exports = router;
