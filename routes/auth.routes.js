@@ -30,8 +30,7 @@ router.post("/signup", async (req, res, next) => {
     return; // esto detiene la funcion. Actuando como clausula de guardia.
   }
 
-  //! 3. el email debe tener un estructura correcta // pendiente por implementar
-
+  
   try {
     // 4. No haya otro usuario con el mismo email // todo
     const foundUser = await User.findOne({ email: email });
