@@ -20,7 +20,5 @@ router.use("/auth", authRouter)
 const reviewsRouter = require("./reviews.routes.js")
 router.use("/reviews", reviewsRouter)
 
-//ruta a admin
-const adminRouter = require("./admin.routes.js")
-router.use("admin", adminRouter)
+
 module.exports = router;
