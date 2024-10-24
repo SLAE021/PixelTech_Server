@@ -7,23 +7,23 @@ const Schema = mongoose.Schema;
 const productSchema = new Schema({
     name:{
         type: String,
-        required:false,
+        required:true,
     },
     description: {
         type:String,
-        required:false,
+        required:true,
     },
     price: {
         type:Number,
-        required: false,
+        required: true,
     },
     category: {
         type: String,
-        required: false,
+        required: true,
     },
     image: {
         type: String,
-        required: false,
+        required: true,
     }
 })
 //* Crear y exportar el modelo 
