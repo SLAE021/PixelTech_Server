@@ -23,7 +23,7 @@ const productSchema = new Schema({
     },
     image: {
         type: String,
-        required: true,
+        required: false,
     }
 })
 //* Crear y exportar el modelo 
