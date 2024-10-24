@@ -30,7 +30,7 @@ router.get("/:id", async (req, res, next) => {
 
 // --/api/products -- agrega producto Admin //! cambiar el estado a true al agregar productos desde client admin
 
-router.post("/",verifyToken, verifyAdmin, async (req, res, next) => {
+router.post("/products",verifyToken, verifyAdmin, async (req, res, next) => {
   try {
     const crearProduct = await Products.create({
       name: req.body.name,

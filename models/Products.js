@@ -21,10 +21,10 @@ const productSchema = new Schema({
         type: String,
         required: true,
     },
-    /* image: {
+    image: {
         type: String,
         required: false,
-    } */
+    }
 })
 //* Crear y exportar el modelo 
 const Products = mongoose.model("Product", productSchema);
