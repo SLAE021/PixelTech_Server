@@ -1,12 +1,8 @@
 const router = require("express").Router();
 
-
-
-
-router.get("/", (req, res, next) => {
+router.get("/", (req, res) => {
   res.json("All good in here");
 });
-
 
 //ruta a productos
 const productsRouter = require("./products.routes.js")
@@ -20,5 +16,8 @@ router.use("/auth", authRouter)
 const reviewsRouter = require("./reviews.routes.js")
 router.use("/reviews", reviewsRouter)
 
+//ruta a upload de imagenes
+const cloudinaryRouter = require("./cloudinary.routes.js")
+router.use("/upload", cloudinaryRouter)
 
 module.exports = router;

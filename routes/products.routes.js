@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const Products = require("../models/Products");
 const {verifyToken,verifyAdmin}= require("../middlewares/auth.middlewares")
+const multer = require('multer');
+const upload = multer();
 
 // api/products-- muestra todos los productos--
 
@@ -30,7 +32,7 @@ router.get("/:id", async (req, res, next) => {
 
 // --/api/products -- agrega producto Admin //! cambiar el estado a true al agregar productos desde client admin
 
-router.post("/products",verifyToken, verifyAdmin, async (req, res, next) => {
+router.post("/", upload.none(), verifyToken, verifyAdmin, async (req, res, next) => {
   try {
     const crearProduct = await Products.create({
       name: req.body.name,
@@ -49,7 +51,7 @@ router.post("/products",verifyToken, verifyAdmin, async (req, res, next) => {
 
 ///api/products/update/id-- actualizar un producto Admin
 
-router.patch("/update/:id",verifyToken,verifyAdmin, async (req, res, next) => {
+router.patch("/update/:id", upload.none(),verifyToken,verifyAdmin, async (req, res, next) => {
   try {
     await Products.findByIdAndUpdate(req.params.id, {
       name: req.body.name,
@@ -67,7 +69,6 @@ router.patch("/update/:id",verifyToken,verifyAdmin, async (req, res, next) => {
 
 
 //--  /api/products/"y el id correspondiente"  Borrar productos por id
-
 router.delete("/:id",verifyToken,verifyAdmin, async (req, res, next) => {
   try {
     await Products.findByIdAndDelete(req.params.id);
