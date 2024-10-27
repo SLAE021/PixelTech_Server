@@ -22,7 +22,7 @@ const productSchema = mongoose.Schema({
     },
     image: {
         type: String,
-        required: false,
+        
     }
 })
 //* Crear y exportar el modelo 
