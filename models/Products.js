@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
 
 //*crear un modelo
-const Schema = mongoose.Schema;
-
-
-const productSchema = new Schema({
+;
+//const productSchema = new Schema
+const productSchema = mongoose.Schema({
     name:{
         type: String,
         required:true,
